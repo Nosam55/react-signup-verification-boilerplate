@@ -4,6 +4,7 @@ import { accountService } from '@/_services';
 export const fetchWrapper = {
     get,
     post,
+    postFile,
     put,
     delete: _delete
 }
@@ -33,6 +34,23 @@ function put(url, body) {
         body: JSON.stringify(body)
     };
     return fetch(url, requestOptions).then(handleResponse);    
+}
+
+function postFile(url, body){
+    const data = new FormData();
+
+    for(const name in body){
+        data.append(name, body[name]);
+        console.log(`${name}: ${body[name]}`);
+    }
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': undefined, ...authHeader(url) }, //Content-Type undefined necessary w/ using FormData
+        credentials: 'include',
+        body: data
+    };
+    return fetch(url, requestOptions).then(handleResponse);
 }
 
 // prefixed with underscored because delete is a reserved word in javascript

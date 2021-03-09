@@ -66,7 +66,7 @@ function Update({ history }) {
                         <div className="form-group col">
                             <label>Title</label>
                             <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
-                                <option value=""></option>
+                                <option value="" />
                                 <option value="Mr">Mr</option>
                                 <option value="Mrs">Mrs</option>
                                 <option value="Miss">Miss</option>
@@ -106,12 +106,12 @@ function Update({ history }) {
                     </div>
                     <div className="form-group">
                         <button type="submit" disabled={isSubmitting} className="btn btn-primary mr-2">
-                            {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                            {isSubmitting && <span className="spinner-border spinner-border-sm mr-1" />}
                             Update
                         </button>
                         <button type="button" onClick={() => onDelete()} className="btn btn-danger" style={{ width: '75px' }} disabled={isDeleting}>
                             {isDeleting
-                                ? <span className="spinner-border spinner-border-sm"></span>
+                                ? <span className="spinner-border spinner-border-sm" />
                                 : <span>Delete</span>
                             }
                         </button>
