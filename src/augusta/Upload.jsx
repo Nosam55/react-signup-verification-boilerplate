@@ -31,7 +31,6 @@ function Upload({match}) {
 
     function handleFileChange(event){
         state.photo = event.target.files[0];
-        alert(state.photo);
     }
 
     function onSubmit(event){
@@ -54,13 +53,14 @@ function Upload({match}) {
         if(errors.length > 0){
             return false;
         } else {
-            alert(JSON.stringify(state));
-            augustaService.create(state);
+            const {errors, ...body} = state; //Pull 'errors' out of the request
+            console.log(`Sending request with body: ${JSON.stringify(body)}`);
+            augustaService.create(body);
         }
     }
 
     return (
-        <form enctype="multipart/form-data" className="container">
+        <form encType="multipart/form-data" className="container">
             <div className="row">
                 <div className="col">
                     <div className="row">
