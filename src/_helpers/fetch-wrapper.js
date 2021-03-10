@@ -43,9 +43,7 @@ function postFile(url, body){
         data.append(name, body[name]);
         console.log(`Appending { ${name}: ${body[name]} } to request`);
     }
-
-    //If Content-Type is not specified, it defaults to text/plain.
-    //Setting it to undefined allows something else to configure it for FormData
+    
     const requestOptions = {
         method: 'POST',
         headers: { ...authHeader(url) },
