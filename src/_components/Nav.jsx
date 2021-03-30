@@ -24,7 +24,7 @@ function Nav() {
                     {user.role === Role.Admin &&
                         <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }
-                    <NavLink to="/augusta" className="nav-item nav-link">Upload</NavLink>
+                    <NavLink to="/augusta" className="nav-item nav-link">Augusta</NavLink>
                     <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
                 </div>
             </nav>

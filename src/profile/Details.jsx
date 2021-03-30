@@ -15,6 +15,7 @@ function Details({ match }) {
                 <strong>Email: </strong> {user.email}
             </p>
             <p><Link to={`${path}/update`}>Update Profile</Link></p>
+            <p><Link to={`${path}/photobox`}>See Your Photobox</Link></p>
         </div>
     );
 }

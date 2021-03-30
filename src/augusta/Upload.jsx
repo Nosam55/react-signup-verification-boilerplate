@@ -34,7 +34,7 @@ function Upload({match}) {
     }
 
     function onSubmit(event){
-        event.preventDefault();
+        //event.preventDefault();
         let errors = [];
 
         if(state.name === ""){
@@ -54,6 +54,7 @@ function Upload({match}) {
             return false;
         } else {
             const {errors, ...body} = state; //Pull 'errors' out of the request
+            //TODO: Sanitize the 'name' and 'keywords' inputs to prevent script injection
             console.log(`Sending request with body: ${JSON.stringify(body)}`);
             augustaService.create(body);
         }
